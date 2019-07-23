@@ -24,11 +24,6 @@ public class SplitViewFragment extends SplitViewController {
                 }
             };
 
-
-    // ================================================================================
-    // Lifecycle
-    // ================================================================================
-
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
@@ -79,11 +74,6 @@ public class SplitViewFragment extends SplitViewController {
         super.onStop();
     }
 
-
-    // ================================================================================
-    // Split View Controller
-    // ================================================================================
-
     @Override
     public int getMasterFragmentContainerId() {
         return R.id.masterView;
@@ -116,12 +106,6 @@ public class SplitViewFragment extends SplitViewController {
             actionBar.setSubtitle(isSplitViewLayout() ? null : subtitle);
         }
     }
-
-
-    // ================================================================================
-    // Split View Navigation Listener
-    // ================================================================================
-
 
     public boolean usesNavigationDrawer() {
         return true;

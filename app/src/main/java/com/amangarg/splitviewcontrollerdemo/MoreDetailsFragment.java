@@ -12,11 +12,6 @@ public class MoreDetailsFragment extends SplitViewDetailFragment {
 
     private String mItemName;
 
-
-    // ================================================================================
-    // Lifecycle
-    // ================================================================================
-
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

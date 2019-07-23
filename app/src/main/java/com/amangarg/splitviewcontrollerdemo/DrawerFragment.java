@@ -12,8 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +23,8 @@ public class DrawerFragment extends Fragment {
     private final ArrayList<FragmentDrawerItem> mDrawerItems =
             new ArrayList<FragmentDrawerItem>() {{
                 add(new FragmentDrawerItem("Home", SplitViewFragment.class, true));
-                add(new FragmentDrawerItem("GitHub", WebViewFragment.class, false));
+                add(new FragmentDrawerItem("Home", SplitViewFragment.class, false));
+                ;
             }};
 
     private ListView mListView;
@@ -34,13 +33,8 @@ public class DrawerFragment extends Fragment {
 
     private int mSelectedItemPosition = AdapterView.INVALID_POSITION;
 
-
-    // ================================================================================
-    // Lifecycle
-    // ================================================================================
-
     @Override
-    public void onCreate (final Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mListAdapter = new DrawerListAdapter(getActivity(), mDrawerItems);
@@ -52,16 +46,16 @@ public class DrawerFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView (final LayoutInflater inflater, final ViewGroup container,
-                              final Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
+                             final Bundle savedInstanceState) {
         mListView = (ListView) inflater.inflate(R.layout.fragment_drawer, container, false);
         mListView.setAdapter(mListAdapter);
         mListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         mListView.setItemChecked(mSelectedItemPosition, true);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick (final AdapterView<?> parent, final View view,
-                                     final int position, final long id) {
+            public void onItemClick(final AdapterView<?> parent, final View view,
+                                    final int position, final long id) {
                 mListView.setItemChecked(position, true);
 
                 if (mDrawerItemSelectionListener != null) {
@@ -74,14 +68,14 @@ public class DrawerFragment extends Fragment {
     }
 
     @Override
-    public void onStart () {
+    public void onStart() {
         super.onStart();
 
         Log.d(TAG, "onStart");
     }
 
     @Override
-    public void onResume () {
+    public void onResume() {
         super.onResume();
 
         Log.d(TAG, "onResume");
@@ -92,75 +86,61 @@ public class DrawerFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState (final Bundle outState) {
+    public void onSaveInstanceState(final Bundle outState) {
         super.onSaveInstanceState(outState);
 
         outState.putInt(STATE_SELECTED_ITEM_POSITION, mListView.getCheckedItemPosition());
     }
 
     @Override
-    public void onPause () {
+    public void onPause() {
         Log.d(TAG, "onPause");
 
         super.onPause();
     }
 
     @Override
-    public void onStop () {
+    public void onStop() {
         Log.d(TAG, "onStop");
 
         super.onStop();
     }
 
-    // ================================================================================
-    // Drawer Item Listener Interface
-    // ================================================================================
-
-    public void setDrawerItemSelectionListener (final DrawerItemSelectionListener listener) {
+    public void setDrawerItemSelectionListener(final DrawerItemSelectionListener listener) {
         mDrawerItemSelectionListener = listener;
     }
 
     public interface DrawerItemSelectionListener {
-        public void onDrawerItemSelected (final FragmentDrawerItem fragmentDrawerItem);
+        public void onDrawerItemSelected(final FragmentDrawerItem fragmentDrawerItem);
     }
 
-
-    // ================================================================================
-    // List Adapter
-    // ================================================================================
-
     private class DrawerListAdapter extends ArrayAdapter<FragmentDrawerItem> {
-        public DrawerListAdapter (final Context context, final List<FragmentDrawerItem> objects) {
+        public DrawerListAdapter(final Context context, final List<FragmentDrawerItem> objects) {
             super(context, android.R.layout.simple_list_item_1, objects);
         }
     }
-
-
-    // ================================================================================
-    // Drawer Items
-    // ================================================================================
 
     public class FragmentDrawerItem {
         private final String mTitle;
         private final Class mFragmentClass;
         private final boolean mDefaultItem;
 
-        public FragmentDrawerItem (final String title, final Class fragmentClass,
-                                   final boolean isDefaultItem) {
+        public FragmentDrawerItem(final String title, final Class fragmentClass,
+                                  final boolean isDefaultItem) {
             mTitle = title;
             mFragmentClass = fragmentClass;
             mDefaultItem = isDefaultItem;
         }
 
-        public String getTitle () {
+        public String getTitle() {
             return mTitle;
         }
 
-        public Class getFragmentClass () {
+        public Class getFragmentClass() {
             return mFragmentClass;
         }
 
-        public boolean isDefaultItem () {
+        public boolean isDefaultItem() {
             return mDefaultItem;
         }
     }

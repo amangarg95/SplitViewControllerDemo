@@ -4,16 +4,12 @@ import android.app.FragmentTransaction;
 
 public abstract class SplitViewDetailFragment extends SplitViewAbsFragment {
 
-    // ================================================================================
-    // Presentation
-    // ================================================================================
-
-    protected void pushDetailFragment (final SplitViewDetailFragment detailFragment) {
+    protected void pushDetailFragment(final SplitViewDetailFragment detailFragment) {
         pushDetailFragment(detailFragment, getFragmentManager().beginTransaction());
     }
 
-    protected void pushDetailFragment (final SplitViewDetailFragment detailFragment,
-                                       final FragmentTransaction transaction) {
+    protected void pushDetailFragment(final SplitViewDetailFragment detailFragment,
+                                      final FragmentTransaction transaction) {
         detailFragment.setController(getController());
 
         transaction.replace(getId(), detailFragment);
@@ -21,20 +17,16 @@ public abstract class SplitViewDetailFragment extends SplitViewAbsFragment {
         transaction.commit();
     }
 
-    // ================================================================================
-    // Helpers
-    // ================================================================================
-
-    protected void setTitle (final CharSequence title) {
+    protected void setTitle(final CharSequence title) {
         getController().setDetailViewTitle(title);
     }
 
-    protected void setSubtitle (final CharSequence subtitle) {
+    protected void setSubtitle(final CharSequence subtitle) {
         getController().setDetailViewSubtitle(subtitle);
     }
 
     @Override
-    protected int getViewId () {
+    protected int getViewId() {
         return getController().getDetailFragmentContainerId();
     }
 }

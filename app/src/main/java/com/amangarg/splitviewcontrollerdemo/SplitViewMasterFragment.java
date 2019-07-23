@@ -4,10 +4,6 @@ import android.app.FragmentTransaction;
 
 public abstract class SplitViewMasterFragment extends SplitViewAbsFragment {
 
-    // ================================================================================
-    // Presentation
-    // ================================================================================
-
     protected void setDetailFragment(final SplitViewDetailFragment detailFragment) {
         getController().setDetailFragment(detailFragment);
     }
@@ -16,11 +12,6 @@ public abstract class SplitViewMasterFragment extends SplitViewAbsFragment {
     FragmentTransaction transaction) {
         getController().setDetailFragment(detailFragment, transaction);
     }
-
-
-    // ================================================================================
-    // Helpers
-    // ================================================================================
 
     @Override
     protected int getViewId() {

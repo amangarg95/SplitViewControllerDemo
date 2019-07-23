@@ -24,11 +24,6 @@ public abstract class SplitViewController extends Fragment implements SplitViewN
 
     private boolean mNotifyDetailViewListeners = true;
 
-
-    // ================================================================================
-    // Fragment Lifecycle
-    // ================================================================================
-
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +61,6 @@ public abstract class SplitViewController extends Fragment implements SplitViewN
 
         super.onStop();
     }
-
-
-    // ================================================================================
-    // Child Fragment Management
-    // ================================================================================
 
     private void configureChildFragments() {
         if (mMasterFragment == null) {
@@ -111,10 +101,6 @@ public abstract class SplitViewController extends Fragment implements SplitViewN
     }
 
 
-    // ================================================================================
-    // Master Fragment
-    // ================================================================================
-
     public abstract int getMasterFragmentContainerId();
 
     public void setMasterFragment(final SplitViewMasterFragment masterFragment) {
@@ -127,11 +113,6 @@ public abstract class SplitViewController extends Fragment implements SplitViewN
 
         mMasterFragment = masterFragment;
     }
-
-
-    // ================================================================================
-    // Detail Fragment
-    // ================================================================================
 
     public abstract int getDetailFragmentContainerId();
 
@@ -183,17 +164,7 @@ public abstract class SplitViewController extends Fragment implements SplitViewN
         }
     }
 
-
-    // ================================================================================
-    // Properties
-    // ================================================================================
-
     public abstract boolean isSplitViewLayout();
-
-
-    // ================================================================================
-    // OnDetailViewChangedListener
-    // ================================================================================
 
     public void addOnDetailViewChangedListener(final OnDetailViewChangedListener listener) {
         if (!mDetailViewChangedListeners.contains(listener)) {

@@ -6,35 +6,20 @@ import android.os.Bundle;
 abstract class SplitViewAbsFragment extends Fragment {
     private SplitViewController mController;
 
-
-    // ================================================================================
-    // Fragment Lifecycle
-    // ================================================================================
-
     @Override
-    public void onCreate (final Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setRetainInstance(true);
     }
 
-
-    // ================================================================================
-    // Split View Controller
-    // ================================================================================
-
-    public void setController (final SplitViewController controller) {
+    public void setController(final SplitViewController controller) {
         mController = controller;
     }
 
-    protected SplitViewController getController () {
+    protected SplitViewController getController() {
         return mController;
     }
 
-
-    // ================================================================================
-    // Helpers
-    // ================================================================================
-
-    protected abstract int getViewId ();
+    protected abstract int getViewId();
 }

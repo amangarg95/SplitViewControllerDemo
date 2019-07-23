@@ -16,13 +16,8 @@ public class DetailFragment extends SplitViewDetailFragment {
 
     private String mItemName;
 
-
-    // ================================================================================
-    // Lifecycle
-    // ================================================================================
-
     @Override
-    public void onCreate (final Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         final Bundle args = getArguments();
@@ -33,8 +28,8 @@ public class DetailFragment extends SplitViewDetailFragment {
     }
 
     @Override
-    public View onCreateView (final LayoutInflater inflater, final ViewGroup container,
-                              final Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
+                             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_details, container, false);
 
         final TextView itemNameTextView =
@@ -45,7 +40,7 @@ public class DetailFragment extends SplitViewDetailFragment {
                 (Button) view.findViewById(R.id.detailView_moreDetailsButton);
         moreDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (final View v) {
+            public void onClick(final View v) {
                 final Bundle args = new Bundle();
                 args.putString(ARGS_ITEM_NAME, mItemName);
 
@@ -60,14 +55,14 @@ public class DetailFragment extends SplitViewDetailFragment {
     }
 
     @Override
-    public void onStart () {
+    public void onStart() {
         super.onStart();
 
         Log.d(TAG, "onStart");
     }
 
     @Override
-    public void onResume () {
+    public void onResume() {
         super.onResume();
 
         Log.d(TAG, "onResume");
@@ -76,14 +71,14 @@ public class DetailFragment extends SplitViewDetailFragment {
     }
 
     @Override
-    public void onPause () {
+    public void onPause() {
         Log.d(TAG, "onPause");
 
         super.onPause();
     }
 
     @Override
-    public void onStop () {
+    public void onStop() {
         Log.d(TAG, "onStop");
 
         super.onStop();
