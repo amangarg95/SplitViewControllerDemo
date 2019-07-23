@@ -1,0 +1,4 @@
+
+Jsquid:S3599",Use another way to initialize this instance.(´Ø••8²ÑÏèÁ-
+usquid:S1450"XRemove the "mListView" field and declare it as a local variable in the relevant methods.(‡¾÷\8²ÑÏèÁ-
+wsquid:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(´Ø••8²ÑÏèÁ-
